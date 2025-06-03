@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Home - User App{% endblock %}
+
+{% block content %}
+<div class="user-profile" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+    
+    <div class="user-info" style="flex: 1;">
+        <h2>{{ user.name }}</h2>
+        <p><strong>Age:</strong> {{ age }} years old</p>
+        <p><strong>Address:</strong> {{ user.address }}</p>
+    </div>
+
+    {% if user.image_filename %}
+        <img src="{{ url_for('static', filename='uploads/' + user.image_filename) }}"
+             alt="Profile Picture"
+             class="user-image"
+             style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid #007bff;">
+    {% else %}
+        <div style="width: 200px; height: 200px; border-radius: 50%; background: #ddd; display: flex; align-items: center; justify-content: center; color: #666; border: 4px solid #ccc;">
+            No Image
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

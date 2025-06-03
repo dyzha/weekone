@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Login - User App{% endblock %}
+
+{% block content %}
+<div style="position: relative; height: 500px;">
+    <div style="
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        width: 280px;
+        padding: 20px;
+        border: 2px solid #ccc;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    ">
+        <h2 style="text-align: center; margin-bottom: 15px;">Login</h2>
+        <form method="POST" action="{{ url_for('login_post') }}">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="link" style="margin-top: 15px; text-align: center;">
+            <small>Don't have an account? <a href="{{ url_for('register') }}">Register</a></small>
+        </div>
+    </div>
+</div>
+{% endblock %}
